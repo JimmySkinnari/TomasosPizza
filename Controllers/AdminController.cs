@@ -239,25 +239,6 @@ namespace Tomasos4.Controllers
 
             AddDishViewModel model = new AddDishViewModel();
 
-            //var dishes = _context.Matratts.Include(r => r.MatrattProdukts).Include(t => t.MatrattTyp).ToList();
-
-            //foreach (var item in dishes)
-            //{
-            //    DishViewModel dish = new DishViewModel();
-
-            //    dish.Id = item.MatrattId;
-            //    dish.Name = item.MatrattNamn;
-            //    dish.IngredientsString = GetIngredients(item);
-            //    dish.DishType = item.MatrattTyp.Beskrivning;
-            //    dish.Description = item.Beskrivning;
-            //    dish.Ingredients = GetCheckBoxDataForDish(item.MatrattId);
-
-
-            //    model.AllDishes.Add(dish);
-
-            //}
-
-
             model.DishTypes = GetDishTypes();
             model.IngredientCheckBoxes = GetCheckBoxDataForDishes();
 
