@@ -1,0 +1,48 @@
+﻿
+
+
+
+
+@using Microsoft.AspNetCore.Identity
+@using Tomasos4.ModelsIdentity
+
+@inject SignInManager<ApplicationUser> signInManager
+@inject UserManager<ApplicationUser> userManager
+<!--Om användaren är inloggad-->
+
+
+
+
+<h1 class="tomasosTitle"><span id="green">Welcome</span> to <span id="red">Tomasos</span> <span>Pizza!</span></h1>
+
+
+
+
+
+
+@if (signInManager.IsSignedIn(User))
+{
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <h3>Du är inloggad.</h3>
+
+}
+
+
+
+
+
+
+
+
+<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d24379.627245566964!2d-8.407666514728884!3d40.19897616326834!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1spt-PT!2spt!4v1429696780951" width="1550" height="300" frameborder="0" style="border:0" class="map"></iframe>
+
+
+
+
+

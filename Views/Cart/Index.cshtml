@@ -1,0 +1,51 @@
+﻿@model MenuViewModel
+@using Microsoft.AspNetCore.Identity
+@using Tomasos4.ModelsIdentity
+
+@inject SignInManager<ApplicationUser> signInManager
+@inject UserManager<ApplicationUser> userManager
+
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery.unobtrusive-ajax/3.2.5/jquery.unobtrusive-ajax.min.js"></script>
+
+    <link href="~/css/style.css" rel="stylesheet" />
+
+
+    @foreach (var dish in Model.Menu)
+    {
+        <br />
+        <div class="card bg-light mb-3" style="max-width: 18rem;">
+            <div class="card-header">
+                <label>@dish.Name      @dish.DishType</label>
+
+            </div>
+            <div class="card-body">
+                <label>@dish.Description</label>
+                <br />
+                <label class="card-text">@dish.IngredientsString</label>
+                <br />
+                <br />
+
+                @if (signInManager.IsSignedIn(User))
+                {
+                    <a asp-controller="Cart"
+                       asp-action="AddDish"
+                       asp-route-id="@dish.Id"
+                       data-ajax="true"
+                       data-ajax-method="GET"
+                       data-ajax-mode="replace"
+                       data-ajax-update="#cartoverview"
+                       class="btn btn-dark">Add to cart</a>
+
+                }
+
+            </div>
+        </div>
+    }
+
+
+    <div id="cartoverview" class="cart">
+
+
+    </div>
+

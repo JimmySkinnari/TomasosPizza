@@ -1,0 +1,33 @@
+﻿@model Tomasos4.ViewModels.UserViewModel
+
+
+
+
+@foreach (var user in Model.Users)
+{
+    <br />
+    <div class="card bg-light mb-3" style="max-width: 18rem;">
+        <div class="card-header">@user.RoleName</div>
+        <div class="card-body">
+            <span> <h5 class="card-title">Username: </h5><p>@user.Username</p></span>
+            <br />
+            <br />
+
+            <a method="get"
+               asp-controller="Admin"
+               asp-action="DeleteUser"
+               asp-route-id="@user.UserId"
+               class="btn btn-danger">Delete</a>
+
+            <a method="get"
+               asp-controller="Admin"
+               asp-action="ManageUserRoles"
+               asp-route-id="@user.UserId"
+               class="btn btn-dark">Change Role</a>
+        </div>
+    </div>
+}
+
+@ViewBag.Message
+
+

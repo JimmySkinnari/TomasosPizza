@@ -1,0 +1,41 @@
+﻿
+@using Microsoft.AspNetCore.Identity
+@using Tomasos4.ModelsIdentity
+
+@inject SignInManager<ApplicationUser> signInManager
+@inject UserManager<ApplicationUser> userManager
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&display=swap" rel="stylesheet">
+    <!--Om användaren är inloggad-->
+    @if (signInManager.IsSignedIn(User))
+    {
+
+
+<ul class="rightMenu">
+    <li><a asp-controller="Account" asp-action="LogOff">Logga ut</a> </li>
+
+    <!--Om inloggad användare är admin-->
+    @if (User.IsInRole("Administrator"))
+    {
+
+        <li><a asp-controller="Admin" asp-action="Index">Admin</a> </li>
+
+
+    }
+    else
+    {
+        <li><a asp-controller="Account" asp-action="EditUser">My Profile</a></li>
+
+    }
+
+</ul>
+    }
+    else
+    {
+        <ul class="rightMenu">
+            <li><a asp-controller="Account" asp-action="Login">Logga in</a> </li>
+            <li><a asp-controller="Account" asp-action="Register">Skapa användare</a> </li>
+        </ul>
+
+    }

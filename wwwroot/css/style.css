@@ -1,0 +1,193 @@
+﻿
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+nav li {
+    float: left;
+}
+
+    nav li a, li {
+        display: inline-block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+
+        nav li a:hover {
+            background-color: #111;
+        }
+
+h3, label {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 16px;
+}
+
+.rightMenu {
+    float: right;
+    margin-right: 200px;
+}
+
+.wrapper{
+
+   
+    display: block;
+   
+}
+
+a:hover {
+   
+
+}
+
+li:hover {
+
+}
+
+.card{
+
+    margin: 25px;
+    margin-top: 40px;
+}
+
+
+body {
+    height: 100%;
+    background: rgb(160, 160, 160);
+}
+
+.map {
+    -webkit-filter: grayscale(100%);
+    -moz-filter: grayscale(100%);
+    -ms-filter: grayscale(100%);
+    -o-filter: grayscale(100%);
+    filter: grayscale(100%);
+    border-radius: 6px;
+    position: absolute;
+    opacity: 25%;
+    width: 100%;
+    border-bottom-style: dashed;
+    border-color: lightgray;
+    border-radius: 8px;
+}
+
+.title{
+
+    margin-top: 80px;
+    opacity: 100%;
+}
+
+.tomasosTitle {
+    font-family: 'Amatic SC', cursive;
+    z-index: 2;
+    margin-top: 152px;
+    background-color: rgb(160, 160, 160);
+    padding: 50px;
+    border-radius: 8px;
+    border-right-style: dashed;
+    border-color: lightgray;
+    border-top-style: dashed;
+    border-left-style: dashed;
+    color: white;
+    font-weight: bold;
+}
+
+.form1 {
+    display: block;
+    flex-direction: row;
+
+    margin-top: 40px;
+    margin: 20px;
+}
+
+a {
+    font-family: 'Amatic SC', cursive;
+}
+
+.registerButton{
+
+    margin-right: 0px;
+    position: relative;
+}
+
+.nr1 nr2{
+
+    
+    margin: 20px;
+    width: 45%;
+    margin-top: 40px;
+    margin-right: 10px;
+    padding-left: 50px;
+}
+
+
+input{
+
+    margin:0px;
+}
+
+label{
+    margin: 5px;
+}
+
+.phoneText {
+    margin-bottom: 50px;
+    margin-left: 400px;
+}
+
+#red{
+
+    color:rgb(152, 45, 45);
+}
+
+#green{
+    color:green;
+}
+
+#cartoverview {
+    color: white;
+    padding-top: 40px;
+    position: relative;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.cart {
+    height: auto;
+    background-color: #333;
+    float: right;
+    -moz-border-radius-bottomleft: 5px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+tr{
+    margin-top: 10px;
+}
+
+.buy{
+    position: absolute;
+    bottom: 0;
+    margin-top: 100px;
+}
+
+.ConfirmOrder{
+
+    position:absolute;
+    background-color: red;
+    height: 500px;
+}
+
+
+
+
+
+
+
+

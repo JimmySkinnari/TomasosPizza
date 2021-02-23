@@ -1,0 +1,51 @@
+﻿@using Microsoft.AspNetCore.Http
+@model Tomasos4.ViewModels.EditIngredientsViewModel
+
+
+
+
+
+
+<br />
+<form asp-controller="Admin" asp-action="AddProdukt" autocomplete="off" method="post">
+    <div class="form1">
+        <div class="nr1">
+
+            <label asp-for="CurrentProdukt.ProduktNamn"></label>
+            <input type="text" asp-for="CurrentProdukt.ProduktNamn" class="form-control" />
+            <span asp-validation-for="CurrentProdukt.ProduktNamn" class="text-danger"></span>
+            <br />
+     
+            <button type="submit" class="btn btn-dark registerButton">Save Ingredient</button>
+        </div>
+    </div>
+
+</form>
+<br />
+
+@foreach (var ingretient in Model.Ingredients)
+{
+    <br />
+    <div class="card bg-light mb-3" style="max-width: 18rem;">
+        <div class="card-header">@ingretient.ProduktNamn</div>
+        <div class="card-body">
+
+            <a method="get"
+               asp-controller="Admin"
+               asp-action="DeleteProdukt"
+               asp-route-id="@ingretient.ProduktId"
+               class="btn btn-danger">Delete</a>
+            <a method="get"
+               asp-controller="Admin"
+               asp-action="EditProdukt"
+               asp-route-id="@ingretient.ProduktId"
+               class="btn btn-dark">Change name</a>
+        </div>
+    </div>
+
+
+
+
+}
+
+@ViewBag.Message

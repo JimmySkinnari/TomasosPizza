@@ -1,0 +1,73 @@
+﻿@model UpdateUserViewModel
+
+<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.12.4.min.js"></script>
+<script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.17.0/jquery.validate.min.js"></script>
+<script src="https://ajax.aspnetcdn.com/ajax/jquery.validation.unobtrusive/3.2.6/jquery.validate.unobtrusive.min.js"></script>
+
+
+@{
+    ViewBag.Title = "Edit user";
+}
+<label class="title">Edit User</label>
+
+<form asp-controller="Account" asp-action="EditUser" autocomplete="off" method="post">
+    <div class="form1">
+        <div class="nr1">
+
+            <label>@ViewBag.Message</label>
+            <br />
+            
+            <br />
+            <br />
+
+            <input type="hidden" asp-for="Id" value="@Model.CurrentUser.Id" />
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <br />
+
+            <label asp-for="Name"></label>
+            <input type="text" asp-for="Name" value="@Model.CurrentUser.Namn" class="form-control" />
+            <span asp-validation-for="Name" class="text-danger"></span>
+            <br />
+
+            <label asp-for="Password"></label>
+            <input type="text" asp-for="Password" class="form-control" />
+            <span asp-validation-for="Password" class="text-danger"></span>
+            <br />
+            <label asp-for="PasswordRepeate"></label>
+            <input type="text" asp-for="PasswordRepeate" class="form-control" />
+            <span asp-validation-for="PasswordRepeate" class="text-danger"></span>
+            <br />
+
+        </div>
+        <div class"nr2">
+            <label asp-for="Email"></label>
+            <input type="text" asp-for="Email" value="@Model.CurrentUser.Email" class="form-control" />
+            <span asp-validation-for="Email" class="text-danger"></span>
+            <br />
+
+            <label asp-for="ZipCode"></label>
+            <input type="text" asp-for="ZipCode" value="@Model.CurrentUser.Postnr" class="form-control" />
+            <span asp-validation-for="ZipCode" class="text-danger"></span>
+            <br />
+
+            <label asp-for="CurrentUser.Postort"></label>
+            <input type="text" asp-for="Region"  value="@Model.CurrentUser.Postort" class="form-control" />
+
+            <br />
+
+            <label asp-for="StreetAddress"></label>
+            <input type="text" asp-for="StreetAddress"  value="@Model.CurrentUser.Gatuadress" class="form-control" />
+            <span asp-validation-for="StreetAddress" class="text-danger"></span>
+            <br />
+
+            <label asp-for="PhoneNumber"></label>
+            <input type="text" asp-for="PhoneNumber"  value="@Model.CurrentUser.PhoneNumber" class="form-control" />
+            <span asp-validation-for="PhoneNumber" class="text-danger phoneText"></span>
+            <br />
+            <br />
+            <button type="submit" class="btn btn-dark registerButton">Register</button>
+        </div>
+    </div>
+
+
+</form>

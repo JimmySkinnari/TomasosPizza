@@ -1,0 +1,42 @@
+﻿@model OrderViewModel
+
+<br />
+@if (Model.Orders.Count > 0)
+{
+    @foreach (var order in Model.Orders)
+    {
+        <br />
+        <div class="card bg-light mb-3" style="max-width: 18rem;">
+            <div class="card-header">
+                <label>@order.BestallningDatum.ToShortDateString()</label>
+
+            </div>
+            <div class="card-body">
+                <br />
+                @if (order.Levererad)
+                {
+                    <label>Status: Levererad</label>
+                }
+                else
+                {
+                    <label>Status: Ej Levererad</label>
+                }
+                <br />
+                <br />
+                <input type="hidden" asp-for="@Model.ID" value="@order.BestallningId" />
+                <a method="get"
+                   asp-controller="Admin"
+                   asp-action="DeleteOrder"
+                   asp-route-id="@order.BestallningId"
+                   class="btn btn-danger">Delete</a>
+                <a method="get"
+                   asp-controller="Admin"
+                   asp-action="MarkOrderAsDelivered"
+                   asp-route-id="@order.BestallningId"
+                   class="btn btn-dark">Mark as delivered</a>
+            </div>
+        </div>
+    }
+}
+
+<h3>Här är Edit Orders Viewn</h3>

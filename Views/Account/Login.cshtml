@@ -1,0 +1,27 @@
+﻿@model Tomasos4.Models.NewUserDetails
+
+@{
+    ViewBag.Title = "Login";
+}
+
+<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.12.4.min.js"></script>
+<script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.17.0/jquery.validate.min.js"></script>
+<script src="https://ajax.aspnetcdn.com/ajax/jquery.validation.unobtrusive/3.2.6/jquery.validate.unobtrusive.min.js"></script>
+
+<form asp-controller="Account" asp-action="Login" method="post">
+
+    <label asp-for="Name"></label>
+    <input type="text" asp-for="Name" autocomplete="off" class="form-control" />
+
+    <br /><br />
+
+    <label asp-for="Password"></label>
+    <input type="password" asp-for="Password" autocomplete="off" class="form-control" />
+
+    <br /><br />
+
+    <button type="submit" class="btn btn-dark">Logga in</button>
+
+</form>
+
+

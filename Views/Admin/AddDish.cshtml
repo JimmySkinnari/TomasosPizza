@@ -1,0 +1,53 @@
+﻿@using Microsoft.AspNetCore.Http
+@model Tomasos4.ViewModels.AddDishViewModel
+
+
+<form asp-controller="Admin" asp-action="AddDish" autocomplete="off" method="post">
+    <div class="form1">
+        <div class="nr1">
+
+            @ViewBag.Message
+
+            <label asp-for="CurrentMatratt.MatrattNamn"> Dish name</label>
+            <input type="text" asp-for="CurrentMatratt.MatrattNamn" class="form-control" />
+            <span asp-validation-for="CurrentMatratt.MatrattNamn" class="text-danger"></span>
+            <br />
+
+            <label asp-for="CurrentMatratt.Pris"> Price</label>
+            <input type="number" asp-for="CurrentMatratt.Pris" class="form-control" value="" />
+            <span asp-validation-for="CurrentMatratt.Pris" class="text-danger"></span>
+            <br />
+            <label asp-for="CurrentMatrattDishTypeID"> Type</label>
+            <select asp-for="CurrentMatrattDishTypeID" asp-items="@Model.DishTypes">
+            </select>
+            <br />
+
+            <label asp-for="CurrentMatratt.Beskrivning"> Dish Description</label>
+            <input type="text" asp-for="CurrentMatratt.Beskrivning" class="form-control" />
+            <span asp-validation-for="CurrentMatratt.Beskrivning" class="text-danger"></span>
+            <br />
+
+            <input type="hidden" asp-for="CurrentMatratt.MatrattId" value="0" />
+         
+
+            <div class="card-body">
+                @for (int i = 0; i < Model.IngredientCheckBoxes.Count; i++)
+                {
+                    <div class="form-check m-1">
+
+                        <input type="hidden" asp-for="@Model.IngredientCheckBoxes[i].IngredientID" />
+                        <input type="hidden" asp-for="@Model.IngredientCheckBoxes[i].IngredientName" />
+                        <input asp-for="@Model.IngredientCheckBoxes[i].IsSelected" class="form-check-input" />
+                        <label class="form-check-label" asp-for="@Model.IngredientCheckBoxes[i].IsSelected">
+                            @Model.IngredientCheckBoxes[i].IngredientName
+                        </label>
+                    </div>
+                }
+
+            </div>
+
+            <button type="submit" class="btn btn-dark registerButton">Add Dish</button>
+        </div>
+    </div>
+
+</form>

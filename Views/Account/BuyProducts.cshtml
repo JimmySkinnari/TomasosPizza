@@ -1,0 +1,41 @@
+﻿@model List<Matratt>
+@using Microsoft.AspNetCore.Identity
+@using Tomasos4.ModelsIdentity
+
+@inject SignInManager<ApplicationUser> signInManager
+@inject UserManager<ApplicationUser> userManager
+
+<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
+<script src="https://ajax.aspnetcdn.com/ajax/jquery.unobtrusive-ajax/3.2.5/jquery.unobtrusive-ajax.min.js"></script>
+
+<link href="~/css/style.css" rel="stylesheet" />
+
+
+
+    <br />
+    <div class="card bg-light mb-3" style="max-width: 18rem;">
+        <div class="card-body">
+            @foreach (var dish in Model)
+            {
+                <label>@dish.MatrattNamn</label>
+                <label>@dish.Pris Kr</label>
+
+                <br />
+
+            }
+            <br />
+            <label>Total: @Model.Sum(p => p.Pris) kr</label>
+            <br />
+            <br />
+            <div class="ConfirmButton">
+                <a asp-controller="Account"
+                   asp-action="BuyConfirmed"
+                   class="btn btn-dark">Confirm Order</a>
+            </div>
+        </div>
+        </div>
+
+
+
+
+

@@ -1,0 +1,103 @@
+﻿@using Microsoft.AspNetCore.Http
+@model Tomasos4.ViewModels.EditDishViewModel
+@*
+
+    Logiken för detta måste kolla så att ordrar som ej är levererade måste bli levererade innan delete
+    av produkter????
+
+
+*@
+
+
+<br />
+@if (Model.AllDishes.Count > 0)
+{
+    @foreach (var dish in Model.AllDishes)
+    {
+        <br />
+        <div class="card bg-light mb-3" style="max-width: 18rem;">
+            <div class="card-header">
+                <label>@dish.Name      @dish.DishType</label>
+
+            </div>
+            <div class="card-body">
+                <label>@dish.Description</label>
+                <br />
+                <label class="card-text">@dish.IngredientsString</label>
+                <br />
+                <br />
+                <a method="get"
+                   asp-controller="Admin"
+                   asp-action="DeleteDish"
+                   asp-route-id="@dish.Id"
+                   class="btn btn-danger">Delete</a>
+                <a method="get"
+                   asp-controller="Admin"
+                   asp-action="EditDish"
+                   asp-route-id="@dish.Id"
+                   class="btn btn-dark">Edit Dish</a>
+            </div>
+        </div>
+    }
+}
+
+else if (@Model.CurrentMatratt != null)
+{
+    <form asp-controller="Admin" asp-action="EditDish" autocomplete="off" method="post">
+        <div class="form1">
+            <div class="nr1">
+
+                <label asp-for="CurrentMatratt.MatrattNamn"> Dish name</label>
+                <input type="text" asp-for="CurrentMatratt.MatrattNamn" class="form-control" />
+                <span asp-validation-for="CurrentMatratt.MatrattNamn" class="text-danger"></span>
+                <br />
+
+                <label asp-for="CurrentMatratt.Pris"> Price</label>
+                <input type="text" asp-for="CurrentMatratt.Pris" class="form-control" />
+                <span asp-validation-for="CurrentMatratt.Pris" class="text-danger"></span>
+                <br />
+                <label asp-for="CurrentMatrattDishTypeID"> Type</label>
+                <select asp-for="CurrentMatrattDishTypeID" asp-items="@Model.DishTypes">
+                    <option value="" selected disabled hidden>Choose type</option>
+                </select>
+                <br />
+
+                <label asp-for="CurrentMatratt.Beskrivning"> Dish Description</label>
+                <input type="text" asp-for="CurrentMatratt.Beskrivning" class="form-control" value="@Model.CurrentMatratt.Beskrivning" />
+                <span asp-validation-for="CurrentMatratt.Beskrivning" class="text-danger"></span>
+                <br />
+
+                <input type="hidden" asp-for="CurrentMatratt.MatrattId" class="form-control" value="@Model.CurrentMatratt.MatrattId" />
+
+                <div class="card-body">
+                    @for (int i = 0; i < Model.IngredientCheckBoxes.Count; i++)
+                    {
+                        <div class="form-check m-1">
+
+                            <input type="hidden" asp-for="@Model.IngredientCheckBoxes[i].IngredientID" />
+                            <input type="hidden" asp-for="@Model.IngredientCheckBoxes[i].IngredientName" />
+                            <input asp-for="@Model.IngredientCheckBoxes[i].IsSelected" class="form-check-input" />
+                            <label class="form-check-label" asp-for="@Model.IngredientCheckBoxes[i].IsSelected">
+                                @Model.IngredientCheckBoxes[i].IngredientName
+                            </label>
+                        </div>
+                    }
+
+                </div>
+
+                <button type="submit" class="btn btn-dark registerButton">Save Dish</button>
+            </div>
+        </div>
+
+    </form>
+
+}
+
+
+
+
+
+
+
+
+@ViewBag.Message

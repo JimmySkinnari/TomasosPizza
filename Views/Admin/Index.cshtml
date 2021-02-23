@@ -1,0 +1,24 @@
+﻿
+
+
+
+
+
+
+
+
+
+<div class="dropdown">
+    <button class="btn btn-dark btn-lg dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Edit Food Menu
+    </button>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <a class="dropdown-item btn btn-dark btn-lg" asp-controller="Admin" asp-action="EditFoodMenu">Edit Menu</a>
+        <a class="dropdown-item btn btn-dark btn-lg" asp-controller="Admin" asp-action="EditIngredients">Edit Ingredients</a>
+        <a class="dropdown-item btn btn-dark btn-lg" asp-controller="Admin" asp-action="AddDish">Add Dish</a>
+    </div>
+    <a asp-controller="Admin" asp-action="EditUsers" class="btn btn-dark btn-lg">Edit Users</a>
+
+    <a asp-controller="Admin" asp-action="EditOrders" class="btn btn-dark btn-lg">Edit Orders</a>
+</div>
+
